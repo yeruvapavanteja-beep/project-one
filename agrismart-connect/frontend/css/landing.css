@@ -1,0 +1,195 @@
+/* ============================================================
+   Landing Page Styles
+   ============================================================ */
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 246, 236, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+.navbar .container { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.brand { display: flex; align-items: center; gap: 0.6rem; }
+.brand-mark {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: linear-gradient(155deg, var(--color-leaf), var(--color-forest));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-white); font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+}
+.brand-name { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; color: var(--color-forest); }
+
+.nav-links { display: flex; align-items: center; gap: var(--space-lg); }
+.nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--color-ink-soft); transition: color 0.15s ease; }
+.nav-links a:hover { color: var(--color-forest); }
+.nav-actions { display: flex; align-items: center; gap: var(--space-sm); }
+.nav-toggle { display: none; }
+
+/* ---------------- Hero ---------------- */
+.hero {
+  padding: var(--space-2xl) 0 var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+.hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-2xl); align-items: center; }
+.hero-eyebrow { display: flex; align-items: center; gap: 0.6rem; margin-bottom: var(--space-md); }
+.hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-leaf); }
+.hero-eyebrow span { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-soft); }
+
+.hero h1 { margin-bottom: var(--space-md); }
+.hero h1 em { font-style: italic; color: var(--color-leaf); }
+.hero-sub { font-size: 1.15rem; color: var(--color-ink-soft); max-width: 520px; margin-bottom: var(--space-lg); }
+.hero-ctas { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+
+.hero-stats { display: flex; gap: var(--space-lg); }
+.hero-stat .num { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 600; color: var(--color-forest); display: block; }
+.hero-stat .label { font-size: 0.85rem; color: var(--color-ink-soft); }
+
+/* ---- Growth arc signature visual ---- */
+.growth-arc-wrap { position: relative; }
+.growth-arc { width: 100%; height: auto; }
+.arc-stage-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  fill: var(--color-ink-soft);
+  text-anchor: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.arc-node-circle { fill: var(--color-white); stroke: var(--color-leaf); stroke-width: 2.5; }
+.arc-node-circle.active { fill: var(--color-leaf); }
+.arc-path { fill: none; stroke: var(--color-soil-light); stroke-width: 2; stroke-dasharray: 6 6; }
+
+.growth-arc-caption {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  margin-top: var(--space-sm);
+}
+
+/* Divider reusing the arc motif between sections */
+.section-divider { display: flex; justify-content: center; padding: var(--space-sm) 0; opacity: 0.5; }
+
+/* ---------------- How it works ---------------- */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.step-card { padding: var(--space-lg) var(--space-md); }
+.step-number { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-leaf); font-weight: 700; margin-bottom: var(--space-sm); }
+.step-card h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
+.step-card p { color: var(--color-ink-soft); font-size: 0.95rem; }
+
+/* ---------------- Feature / benefit grids ---------------- */
+.features-grid, .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.feature-card, .benefit-card { padding: var(--space-lg); }
+.feature-icon {
+  width: 52px; height: 52px; border-radius: var(--radius-sm);
+  background: var(--color-wheat-deep);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: var(--space-md);
+  color: var(--color-leaf);
+}
+.feature-card h3 { margin-bottom: 0.4rem; }
+.feature-card p { color: var(--color-ink-soft); font-size: 0.95rem; }
+
+.benefits-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+.benefit-panel { padding: var(--space-lg); border-radius: var(--radius-lg); }
+.benefit-panel.farmer { background: linear-gradient(155deg, #F4ECE1, var(--color-wheat)); border: 1px solid var(--color-border); }
+.benefit-panel.customer { background: linear-gradient(155deg, #E9F3EC, var(--color-wheat)); border: 1px solid var(--color-border); }
+.benefit-panel .panel-tag { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.benefit-panel.farmer .panel-tag { color: var(--color-soil); }
+.benefit-panel.customer .panel-tag { color: var(--color-leaf); }
+.benefit-panel h3 { margin: 0.5rem 0 var(--space-md); font-size: 1.6rem; }
+.benefit-panel ul li { display: flex; gap: 0.6rem; padding: 0.55rem 0; border-bottom: 1px dashed var(--color-border); font-size: 0.96rem; }
+.benefit-panel ul li:last-child { border-bottom: none; }
+.benefit-panel ul li .check { color: var(--color-leaf); font-weight: 700; }
+
+/* ---------------- Pre-harvest booking explainer ---------------- */
+.booking-explainer { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; }
+.booking-demo-card { padding: var(--space-lg); border-radius: var(--radius-lg); position: relative; }
+.booking-demo-card .crop-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-sm); }
+.booking-demo-card .crop-row h3 { font-size: 1.3rem; }
+.booking-progress-track { height: 10px; border-radius: 999px; background: var(--color-wheat-deep); overflow: hidden; margin: var(--space-sm) 0; }
+.booking-progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-leaf), var(--color-gold)); border-radius: 999px; }
+.booking-figures { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-top: var(--space-md); }
+.booking-figures div { text-align: center; padding: var(--space-sm); background: var(--color-wheat); border-radius: var(--radius-sm); }
+.booking-figures .num { display: block; font-family: var(--font-mono); font-weight: 600; font-size: 1.15rem; color: var(--color-forest); }
+.booking-figures .label { font-size: 0.78rem; color: var(--color-ink-soft); }
+
+/* ---------------- AI recommendation explainer ---------------- */
+.ai-explainer { background: var(--color-forest); color: var(--color-wheat); border-radius: var(--radius-lg); padding: var(--space-2xl); position: relative; overflow: hidden; }
+.ai-explainer .section-heading h2 { color: var(--color-white); }
+.ai-explainer .section-heading p { color: rgba(250,246,236,0.75); }
+.score-formula { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.95rem; margin: var(--space-lg) 0; }
+.score-chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); padding: 0.5rem 1rem; border-radius: 999px; }
+.score-chip.result { background: var(--color-leaf); border-color: var(--color-leaf); }
+.ai-sample-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-md); padding: var(--space-md); }
+.ai-sample-card .rank { font-family: var(--font-mono); color: var(--color-gold); font-size: 0.85rem; }
+.ai-sample-card h4 { color: var(--color-white); font-family: var(--font-display); font-size: 1.2rem; margin: 0.3rem 0; }
+.ai-sample-card p { color: rgba(250,246,236,0.7); font-size: 0.9rem; }
+.ai-disclaimer { font-size: 0.82rem; color: rgba(250,246,236,0.55); margin-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.12); padding-top: var(--space-sm); }
+
+/* ---------------- Stats/impact ---------------- */
+.impact-strip { background: var(--color-wheat-deep); border-radius: var(--radius-lg); padding: var(--space-xl); display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); text-align: center; }
+.impact-stat .num { font-family: var(--font-mono); font-size: 2.2rem; font-weight: 600; color: var(--color-forest); }
+.impact-stat .label { color: var(--color-ink-soft); font-size: 0.92rem; margin-top: 0.3rem; }
+.impact-note { text-align: center; font-size: 0.82rem; color: var(--color-ink-soft); margin-top: var(--space-md); }
+
+/* ---------------- Testimonials ---------------- */
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.testimonial-card { padding: var(--space-lg); }
+.testimonial-quote { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-forest); margin-bottom: var(--space-md); font-style: italic; }
+.testimonial-person { display: flex; align-items: center; gap: 0.7rem; }
+.testimonial-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--color-wheat-deep); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); color: var(--color-forest); font-weight: 600; }
+.testimonial-person .name { font-weight: 600; font-size: 0.92rem; }
+.testimonial-person .role { font-size: 0.8rem; color: var(--color-ink-soft); }
+
+/* ---------------- FAQ ---------------- */
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--space-md) 0; text-align: left; font-weight: 600; font-size: 1.05rem; color: var(--color-forest); }
+.faq-icon { transition: transform 0.25s ease; font-size: 1.3rem; color: var(--color-leaf); }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--color-ink-soft); font-size: 0.96rem; }
+.faq-answer-inner { padding-bottom: var(--space-md); }
+
+/* ---------------- Contact ---------------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); }
+.contact-form { display: grid; gap: var(--space-sm); }
+.contact-form input, .contact-form textarea {
+  padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+  background: var(--color-white);
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--color-leaf); }
+.contact-info-item { display: flex; gap: 0.8rem; padding: var(--space-sm) 0; border-bottom: 1px dashed var(--color-border); }
+.contact-info-item .ci-icon { color: var(--color-leaf); }
+
+/* ---------------- Final CTA ---------------- */
+.final-cta { background: linear-gradient(155deg, var(--color-forest), var(--color-forest-dark)); border-radius: var(--radius-lg); padding: var(--space-2xl); text-align: center; color: var(--color-white); }
+.final-cta h2 { color: var(--color-white); }
+.final-cta p { color: rgba(250,246,236,0.8); max-width: 520px; margin: var(--space-sm) auto var(--space-lg); }
+.final-cta-actions { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+
+/* ---------------- Footer ---------------- */
+.footer { background: var(--color-forest-dark); color: rgba(250,246,236,0.7); padding: var(--space-xl) 0 var(--space-md); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--space-lg); }
+.footer-brand .brand-name { color: var(--color-white); }
+.footer-brand p { margin-top: var(--space-sm); font-size: 0.9rem; max-width: 260px; }
+.footer-col h4 { color: var(--color-white); font-family: var(--font-body); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-sm); }
+.footer-col a { display: block; padding: 0.3rem 0; font-size: 0.92rem; }
+.footer-col a:hover { color: var(--color-leaf-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: var(--space-lg); padding-top: var(--space-md); display: flex; justify-content: space-between; font-size: 0.85rem; }
+
+/* ---------------- Mobile nav drawer ---------------- */
+.mobile-nav-panel {
+  position: fixed; inset: 0; background: var(--color-wheat); z-index: 200;
+  display: none; flex-direction: column; padding: var(--space-lg);
+}
+.mobile-nav-panel.open { display: flex; }
+.mobile-nav-panel a { padding: var(--space-sm) 0; font-size: 1.15rem; font-weight: 600; color: var(--color-forest); border-bottom: 1px solid var(--color-border); }
+.mobile-nav-close { align-self: flex-end; font-size: 1.6rem; color: var(--color-forest); margin-bottom: var(--space-md); }

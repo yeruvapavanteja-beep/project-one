@@ -1,0 +1,43 @@
+/* ============================================================
+   Auth pages (login/register/forgot-password) styles
+   ============================================================ */
+.auth-body { background: var(--color-wheat); min-height: 100vh; }
+.auth-shell { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+.auth-brand-panel {
+  background: linear-gradient(160deg, var(--color-forest), var(--color-forest-dark));
+  padding: var(--space-2xl);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.auth-brand-panel .brand-name { color: var(--color-white); }
+.auth-form-panel { display: flex; align-items: center; justify-content: center; padding: var(--space-lg); }
+.auth-form-card { width: 100%; max-width: 440px; }
+.auth-form-card h3 { margin-top: var(--space-md); }
+.auth-sub { color: var(--color-ink-soft); margin: 0.3rem 0 var(--space-md); font-size: 0.95rem; }
+
+.auth-tabs { display: flex; background: var(--color-wheat-deep); border-radius: 999px; padding: 4px; margin-bottom: var(--space-sm); }
+.auth-tab { flex: 1; padding: 0.6rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem; color: var(--color-ink-soft); transition: all 0.2s ease; }
+.auth-tab.active { background: var(--color-white); color: var(--color-forest); box-shadow: var(--shadow-soft); }
+
+.reg-form label, #loginForm label, #forgotForm label {
+  display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-ink); margin-bottom: var(--space-sm);
+}
+.reg-form input, .reg-form select, .reg-form textarea,
+#loginForm input, #forgotForm input {
+  width: 100%; margin-top: 0.35rem; padding: 0.75rem 0.9rem;
+  border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+  background: var(--color-white); font-size: 0.95rem;
+}
+.reg-form input:focus, .reg-form select:focus, .reg-form textarea:focus,
+#loginForm input:focus, #forgotForm input:focus { border-color: var(--color-leaf); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+.checkbox-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--color-ink-soft); font-weight: 500; }
+.checkbox-label input { width: auto; margin: 0; }
+
+.auth-footer-text { text-align: center; margin-top: var(--space-md); font-size: 0.92rem; color: var(--color-ink-soft); }
+.auth-footer-text a { color: var(--color-leaf); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .auth-shell { grid-template-columns: 1fr; }
+  .auth-brand-panel { display: none; }
+}

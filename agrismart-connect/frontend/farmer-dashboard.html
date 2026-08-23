@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmer Dashboard — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body class="dashboard-body">
+<div class="dashboard-layout">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><span class="brand-mark">A</span><span class="brand-name">AgriSmart</span></div>
+    <nav class="sidebar-nav" id="sidebarNav">
+      <a href="#dashboard" data-section="dashboard" class="active">📊 Dashboard</a>
+      <a href="#farm" data-section="farm">🌾 My Farm</a>
+      <a href="#soil" data-section="soil">🧪 Soil Analysis</a>
+      <a href="#recommendations" data-section="recommendations">🌱 Crop Recommendations</a>
+      <a href="#crops" data-section="crops">🍅 My Crops</a>
+      <a href="#growth" data-section="growth">📈 Crop Growth</a>
+      <a href="#harvest" data-section="harvest">🧺 Upcoming Harvest</a>
+      <a href="#prebookings" data-section="prebookings">📦 Pre-Bookings</a>
+      <a href="#orders" data-section="orders">🚚 Orders</a>
+      <a href="#analytics" data-section="analytics">📉 Analytics</a>
+      <a href="#notifications" data-section="notifications">🔔 Notifications</a>
+      <a href="#profile" data-section="profile">👤 Profile</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button onclick="logout()">🚪 Logout</button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="dashboard-main">
+    <header class="dashboard-topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+      <div class="topbar-title"><h1 id="sectionTitle">Dashboard</h1></div>
+      <div class="topbar-actions">
+        <div class="notif-bell" id="notifBell">🔔<span class="notif-dot" id="notifDot" style="display:none;"></span></div>
+        <div class="topbar-user"><div class="topbar-avatar" id="avatarInitial">F</div><span id="userName">Farmer</span></div>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+
+      <!-- ---------------- DASHBOARD OVERVIEW ---------------- -->
+      <section class="dash-section" id="section-dashboard">
+        <div class="stat-cards">
+          <div class="card stat-card"><div class="stat-icon">🍅</div><div class="stat-label">Total Crops</div><div class="stat-value" id="statTotalCrops">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">🌱</div><div class="stat-label">Active Crops</div><div class="stat-value" id="statActiveCrops">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">🧺</div><div class="stat-label">Upcoming Harvests</div><div class="stat-value" id="statUpcomingHarvests">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">📦</div><div class="stat-label">Pre-Bookings</div><div class="stat-value" id="statPrebookings">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">✅</div><div class="stat-label">Completed Orders</div><div class="stat-value" id="statCompletedOrders">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">⚖️</div><div class="stat-label">Estimated Quantity (kg)</div><div class="stat-value" id="statEstQuantity">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">📈</div><div class="stat-label">Demand Overview</div><div class="stat-value" id="statDemand">—</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h2>Recent Pre-Bookings</h2><a href="#prebookings" data-section="prebookings" class="btn btn-sm btn-outline nav-link">View All</a></div>
+          <table class="data-table"><thead><tr><th>Customer</th><th>Crop</th><th>Qty</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody id="recentBookingsBody"><tr><td colspan="5" class="empty-state">Loading...</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- MY FARM ---------------- -->
+      <section class="dash-section" id="section-farm" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Add / Update Farm</h2></div>
+          <form id="farmForm">
+            <div class="form-grid">
+              <div class="form-field"><label>Farm Name</label><input type="text" name="farmName" required></div>
+              <div class="form-field"><label>Farm Area (acres)</label><input type="number" step="0.1" name="farmArea" required></div>
+              <div class="form-field"><label>Location</label><input type="text" name="location"></div>
+              <div class="form-field"><label>District</label><input type="text" name="district"></div>
+              <div class="form-field"><label>State</label><input type="text" name="state"></div>
+              <div class="form-field"><label>Soil Type</label>
+                <select name="soilType"><option value="">Select</option><option>loamy</option><option>sandy</option><option>clay</option><option>silty</option><option>black</option><option>red</option><option>alluvial</option><option>peaty</option><option>chalky</option></select>
+              </div>
+              <div class="form-field"><label>Irrigation Type</label>
+                <select name="irrigationType"><option value="">Select</option><option>drip</option><option>sprinkler</option><option>flood</option><option>rainfed</option><option>canal</option><option>borewell</option><option>none</option></select>
+              </div>
+              <div class="form-field"><label>Water Availability</label>
+                <select name="waterAvailability"><option value="medium">Medium</option><option value="low">Low</option><option value="high">High</option><option value="abundant">Abundant</option></select>
+              </div>
+              <div class="form-field"><label>Farming Experience (years)</label><input type="number" name="farmingExperienceYears"></div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-md">Save Farm</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h2>Your Farms</h2></div>
+          <table class="data-table"><thead><tr><th>Farm Name</th><th>Location</th><th>Area</th><th>Soil</th><th>Water</th></tr></thead>
+          <tbody id="farmsBody"><tr><td colspan="5" class="empty-state">No farms yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- SOIL ANALYSIS ---------------- -->
+      <section class="dash-section" id="section-soil" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Submit Soil Test</h2></div>
+          <form id="soilForm">
+            <div class="form-grid cols-3">
+              <div class="form-field"><label>Farm</label><select name="farmId" id="soilFarmSelect" required></select></div>
+              <div class="form-field"><label>Soil pH</label><input type="number" step="0.1" name="soilPh" required></div>
+              <div class="form-field"><label>Nitrogen (N)</label><input type="number" step="0.1" name="nitrogen"></div>
+              <div class="form-field"><label>Phosphorus (P)</label><input type="number" step="0.1" name="phosphorus"></div>
+              <div class="form-field"><label>Potassium (K)</label><input type="number" step="0.1" name="potassium"></div>
+              <div class="form-field"><label>Organic Matter (%)</label><input type="number" step="0.1" name="organicMatter"></div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-md">Analyze Soil</button>
+          </form>
+        </div>
+        <div class="panel" id="soilResultPanel" style="display:none;">
+          <div class="panel-header"><h2>Soil Analysis Summary</h2></div>
+          <div id="soilResultContent"></div>
+        </div>
+      </section>
+
+      <!-- ---------------- CROP RECOMMENDATIONS ---------------- -->
+      <section class="dash-section" id="section-recommendations" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Get Smart Crop Recommendations</h2></div>
+          <form id="recoForm">
+            <div class="form-grid cols-3">
+              <div class="form-field"><label>Farm</label><select name="farmId" id="recoFarmSelect" required></select></div>
+              <div class="form-field"><label>Season</label>
+                <select name="season" required><option value="kharif">Kharif</option><option value="rabi">Rabi</option><option value="zaid">Zaid</option><option value="summer">Summer</option><option value="winter">Winter</option></select>
+              </div>
+              <div class="form-field"><label>Water Availability</label>
+                <select name="waterAvailability"><option value="medium">Medium</option><option value="low">Low</option><option value="high">High</option><option value="abundant">Abundant</option></select>
+              </div>
+              <div class="form-field"><label>Soil pH</label><input type="number" step="0.1" name="soilPh" required></div>
+              <div class="form-field"><label>Nitrogen</label><input type="number" step="0.1" name="nitrogen"></div>
+              <div class="form-field"><label>Phosphorus</label><input type="number" step="0.1" name="phosphorus"></div>
+              <div class="form-field"><label>Potassium</label><input type="number" step="0.1" name="potassium"></div>
+              <div class="form-field"><label>Soil Type</label><input type="text" name="soilType" placeholder="e.g. loamy"></div>
+              <div class="form-field"><label>Rainfall Expectation</label>
+                <select name="rainfall"><option value="">Not sure</option><option value="low">Low</option><option value="moderate">Moderate</option><option value="heavy">Heavy</option></select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-md">Generate Recommendations</button>
+          </form>
+        </div>
+        <div class="panel" id="recoResultsPanel" style="display:none;">
+          <div class="panel-header"><h2>Ranked Recommendations</h2></div>
+          <div id="recoResultsContent"></div>
+          <p style="font-size:0.82rem;color:var(--color-ink-soft);margin-top:var(--space-md);border-top:1px solid var(--color-border);padding-top:var(--space-sm);">These are decision-support suggestions based on the data provided — not a guarantee of yield, profit, or market price.</p>
+        </div>
+      </section>
+
+      <!-- ---------------- MY CROPS ---------------- -->
+      <section class="dash-section" id="section-crops" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Add a Crop</h2></div>
+          <form id="cropForm" enctype="multipart/form-data">
+            <div class="form-grid cols-3">
+              <div class="form-field"><label>Farm</label><select name="farmId" id="cropFarmSelect" required></select></div>
+              <div class="form-field"><label>Crop Name</label><input type="text" name="cropName" required></div>
+              <div class="form-field"><label>Variety</label><input type="text" name="variety"></div>
+              <div class="form-field"><label>Area Cultivated (acres)</label><input type="number" step="0.1" name="areaCultivated"></div>
+              <div class="form-field"><label>Planting Date</label><input type="date" name="plantingDate"></div>
+              <div class="form-field"><label>Expected Harvest Date</label><input type="date" name="expectedHarvestDate"></div>
+              <div class="form-field"><label>Estimated Quantity (kg)</label><input type="number" step="0.1" name="estimatedQuantityKg"></div>
+              <div class="form-field"><label>Expected Price (₹/kg)</label><input type="number" step="0.1" name="expectedPricePerKg"></div>
+              <div class="form-field"><label>Crop Image</label><input type="file" name="cropImage" accept="image/*"></div>
+              <div class="form-field full"><label>Description</label><textarea name="description" rows="2"></textarea></div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-md">Add Crop</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h2>Your Crops</h2></div>
+          <table class="data-table"><thead><tr><th>Crop</th><th>Status</th><th>Harvest Date</th><th>Est. Qty</th><th>Pre-Booked</th><th>Actions</th></tr></thead>
+          <tbody id="cropsBody"><tr><td colspan="6" class="empty-state">No crops yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- CROP GROWTH ---------------- -->
+      <section class="dash-section" id="section-growth" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Update Crop Growth</h2></div>
+          <form id="growthForm" enctype="multipart/form-data">
+            <div class="form-grid cols-3">
+              <div class="form-field"><label>Crop</label><select name="cropId" id="growthCropSelect" required></select></div>
+              <div class="form-field"><label>Growth Stage</label>
+                <select name="growthStage" required><option value="seedling">Seedling</option><option value="vegetative">Vegetative</option><option value="flowering">Flowering</option><option value="fruit_development">Fruit Development</option><option value="ready_for_harvest">Ready for Harvest</option></select>
+              </div>
+              <div class="form-field"><label>Growth % </label><input type="number" name="growthPercentage" min="0" max="100" required></div>
+              <div class="form-field"><label>Health Status</label>
+                <select name="healthStatus"><option value="good">Good</option><option value="excellent">Excellent</option><option value="fair">Fair</option><option value="poor">Poor</option><option value="at_risk">At Risk</option></select>
+              </div>
+              <div class="form-field"><label>Image</label><input type="file" name="growthImage" accept="image/*"></div>
+              <div class="form-field full"><label>Notes</label><textarea name="notes" rows="2"></textarea></div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-md">Record Update</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h2>Growth Timeline</h2><select id="timelineCropSelect" class="btn-sm" style="border:1px solid var(--color-border);border-radius:8px;padding:0.4rem 0.6rem;"></select></div>
+          <div class="growth-timeline" id="growthTimelineContent"><p class="empty-state">Select a crop to view its timeline.</p></div>
+        </div>
+      </section>
+
+      <!-- ---------------- UPCOMING HARVEST ---------------- -->
+      <section class="dash-section" id="section-harvest" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Upcoming Harvests & Pre-Booking Availability</h2></div>
+          <table class="data-table"><thead><tr><th>Crop</th><th>Harvest Date</th><th>Expected</th><th>Booked</th><th>Remaining</th><th>Customers</th></tr></thead>
+          <tbody id="harvestBody"><tr><td colspan="6" class="empty-state">No upcoming harvests.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- PRE-BOOKINGS ---------------- -->
+      <section class="dash-section" id="section-prebookings" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Pre-Bookings Received</h2></div>
+          <table class="data-table"><thead><tr><th>Customer</th><th>Crop</th><th>Qty (kg)</th><th>Status</th><th>Date</th><th>Action</th></tr></thead>
+          <tbody id="allBookingsBody"><tr><td colspan="6" class="empty-state">No pre-bookings yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- ORDERS ---------------- -->
+      <section class="dash-section" id="section-orders" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Customer Orders</h2></div>
+          <table class="data-table"><thead><tr><th>Order #</th><th>Customer</th><th>Total</th><th>Status</th><th>Update</th></tr></thead>
+          <tbody id="ordersBody"><tr><td colspan="5" class="empty-state">No orders yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- ANALYTICS ---------------- -->
+      <section class="dash-section" id="section-analytics" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>Monthly Sales</h2></div><div class="chart-wrap"><canvas id="chartMonthlySales"></canvas></div></div>
+        <div class="panel"><div class="panel-header"><h2>Pre-Booking Rate</h2></div><div class="chart-wrap"><canvas id="chartPrebookRate"></canvas></div></div>
+        <div class="panel"><div class="panel-header"><h2>Crop Performance</h2></div>
+          <table class="data-table"><thead><tr><th>Crop</th><th>Status</th><th>Estimated</th><th>Sold</th><th>Pre-Booked</th></tr></thead>
+          <tbody id="cropPerfBody"></tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------------- NOTIFICATIONS ---------------- -->
+      <section class="dash-section" id="section-notifications" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Notifications</h2><button class="btn btn-sm btn-outline" id="markAllReadBtn">Mark all as read</button></div>
+          <div id="notificationsList"></div>
+        </div>
+      </section>
+
+      <!-- ---------------- PROFILE ---------------- -->
+      <section class="dash-section" id="section-profile" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Profile</h2></div>
+          <div id="profileContent"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/farmer.js"></script>
+</body>
+</html>

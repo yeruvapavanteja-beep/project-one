@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketplace — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/marketplace.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">A</span><span class="brand-name">AgriSmart Connect</span></a>
+    <nav class="nav-links">
+      <a href="marketplace.html">Marketplace</a>
+      <a href="index.html#how-it-works">How It Works</a>
+    </nav>
+    <div class="nav-actions" id="navActions">
+      <a href="login.html" class="btn btn-ghost">Log In</a>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<section class="marketplace-header">
+  <div class="container">
+    <h1>Fresh Produce Marketplace</h1>
+    <p>Shop current harvests, or reserve upcoming ones before they're picked.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="marketplace-layout">
+    <aside class="marketplace-filters">
+      <h3>Filters</h3>
+      <form id="filterForm">
+        <div class="filter-group"><label>Crop Name</label><input type="text" name="cropName" placeholder="e.g. Tomato"></div>
+        <div class="filter-group"><label>District</label><input type="text" name="district" placeholder="e.g. Karimnagar"></div>
+        <div class="filter-group"><label>Category</label>
+          <select name="category"><option value="">All Categories</option><option value="vegetables">Vegetables</option><option value="fruits">Fruits</option><option value="leafy-vegetables">Leafy Vegetables</option><option value="organic-produce">Organic Produce</option></select>
+        </div>
+        <div class="filter-group">
+          <label>Price Range (₹/kg)</label>
+          <div class="price-range"><input type="number" name="minPrice" placeholder="Min"><input type="number" name="maxPrice" placeholder="Max"></div>
+        </div>
+        <div class="filter-group">
+          <label><input type="checkbox" name="upcomingOnly" style="width:auto;"> Upcoming Harvests Only</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-sm">Apply Filters</button>
+      </form>
+    </aside>
+
+    <main>
+      <div class="marketplace-grid" id="productsGrid">
+        <p class="empty-state">Loading fresh produce...</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Cart FAB -->
+<button class="cart-fab" id="cartFab">🛒 Cart (<span id="cartCount">0</span>)</button>
+
+<!-- Cart overlay + drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header"><h3>Your Cart</h3><button id="closeCart" style="font-size:1.4rem;">✕</button></div>
+  <div class="cart-drawer-body" id="cartBody"><p class="empty-state">Your cart is empty.</p></div>
+  <div class="cart-drawer-footer">
+    <div class="flex-between mt-sm"><strong>Total</strong><strong id="cartTotal">₹0</strong></div>
+    <button class="btn btn-primary btn-block mt-sm" id="checkoutBtn">Checkout</button>
+  </div>
+</div>
+
+<!-- Pre-book modal -->
+<div class="modal-overlay" id="prebookModal">
+  <div class="modal-box">
+    <h3>Pre-Book Produce</h3>
+    <p class="mt-sm" id="prebookProductName" style="color:var(--color-ink-soft);"></p>
+    <div class="form-field mt-md"><label>Quantity (kg)</label><input type="number" id="prebookQty" min="0.5" step="0.5"></div>
+    <div class="flex gap-sm mt-md">
+      <button class="btn btn-outline" id="closePrebookModal">Cancel</button>
+      <button class="btn btn-primary" id="confirmPrebookBtn">Confirm Pre-Booking</button>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout modal -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal-box">
+    <h3>Confirm Order</h3>
+    <div class="form-field mt-md"><label>Fulfillment</label>
+      <select id="fulfillmentType"><option value="delivery">Delivery</option><option value="pickup">Pickup</option></select>
+    </div>
+    <div class="form-field mt-md" id="addressField"><label>Delivery Address</label><textarea id="deliveryAddress" rows="3"></textarea></div>
+    <div class="flex gap-sm mt-md">
+      <button class="btn btn-outline" id="closeCheckoutModal">Cancel</button>
+      <button class="btn btn-primary" id="confirmCheckoutBtn">Place Order</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/marketplace.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

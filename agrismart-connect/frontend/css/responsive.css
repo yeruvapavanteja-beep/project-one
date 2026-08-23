@@ -1,0 +1,56 @@
+/* ============================================================
+   Responsive Rules — Tablet (<=1024px) and Mobile (<=640px)
+   ============================================================ */
+
+/* ---------------- Tablet ---------------- */
+@media (max-width: 1024px) {
+  .hero .container { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid, .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefits-split { grid-template-columns: 1fr; }
+  .booking-explainer { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .impact-strip { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  .dashboard-layout { grid-template-columns: 220px 1fr; }
+}
+
+/* ---------------- Mobile ---------------- */
+@media (max-width: 640px) {
+  .nav-links, .nav-actions .btn-outline { display: none; }
+  .nav-toggle { display: block; font-size: 1.5rem; color: var(--color-forest); }
+
+  .hero { padding: var(--space-xl) 0; text-align: left; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn { width: 100%; }
+  .hero-stats { gap: var(--space-md); }
+
+  .steps-grid, .features-grid, .benefits-grid, .testimonial-grid { grid-template-columns: 1fr; }
+  .impact-strip { grid-template-columns: 1fr 1fr; padding: var(--space-lg); }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  .section { padding: var(--space-xl) 0; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.6rem; }
+
+  .booking-figures { grid-template-columns: 1fr; }
+  .score-formula { font-size: 0.8rem; }
+
+  /* Dashboards collapse to a bottom/top drawer sidebar on mobile */
+  .dashboard-layout { grid-template-columns: 1fr; }
+  .sidebar { position: fixed; left: -260px; top: 0; bottom: 0; width: 260px; z-index: 150; transition: left 0.25s ease; }
+  .sidebar.open { left: 0; }
+  .dashboard-topbar .sidebar-toggle { display: inline-flex; }
+  .stat-cards { grid-template-columns: repeat(2, 1fr); }
+  .marketplace-grid { grid-template-columns: 1fr 1fr; }
+  .marketplace-filters { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .marketplace-grid { grid-template-columns: 1fr; }
+  .stat-cards { grid-template-columns: 1fr; }
+}

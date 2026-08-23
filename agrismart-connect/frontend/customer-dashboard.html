@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Dashboard — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+<div class="dashboard-layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><span class="brand-mark">A</span><span class="brand-name">AgriSmart</span></div>
+    <nav class="sidebar-nav" id="sidebarNav">
+      <a href="#dashboard" data-section="dashboard" class="active">📊 Dashboard</a>
+      <a href="marketplace.html">🛍️ Marketplace</a>
+      <a href="#upcoming" data-section="upcoming">🧺 Upcoming Harvests</a>
+      <a href="#prebookings" data-section="prebookings">📦 My Pre-Bookings</a>
+      <a href="#orders" data-section="orders">🚚 My Orders</a>
+      <a href="#favorites" data-section="favorites">❤️ Favorites</a>
+      <a href="#notifications" data-section="notifications">🔔 Notifications</a>
+      <a href="#profile" data-section="profile">👤 Profile</a>
+    </nav>
+    <div class="sidebar-footer"><button onclick="logout()">🚪 Logout</button></div>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+      <div class="topbar-title"><h1 id="sectionTitle">Dashboard</h1></div>
+      <div class="topbar-actions">
+        <div class="notif-bell" id="notifBell">🔔<span class="notif-dot" id="notifDot" style="display:none;"></span></div>
+        <div class="topbar-user"><div class="topbar-avatar" id="avatarInitial">C</div><span id="userName">Customer</span></div>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+
+      <section class="dash-section" id="section-dashboard">
+        <div class="stat-cards">
+          <div class="card stat-card"><div class="stat-icon">🛒</div><div class="stat-label">Active Orders</div><div class="stat-value" id="statActiveOrders">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">📦</div><div class="stat-label">Pre-Bookings</div><div class="stat-value" id="statPrebookings">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">🧺</div><div class="stat-label">Upcoming Harvests</div><div class="stat-value" id="statUpcoming">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">✅</div><div class="stat-label">Completed Orders</div><div class="stat-value" id="statCompleted">0</div></div>
+          <div class="card stat-card"><div class="stat-icon">❤️</div><div class="stat-label">Saved Farmers</div><div class="stat-value" id="statSaved">0</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h2>Recent Orders</h2></div>
+          <table class="data-table"><thead><tr><th>Order #</th><th>Farmer</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody id="recentOrdersBody"><tr><td colspan="4" class="empty-state">Loading...</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-upcoming" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Upcoming Harvests You Can Pre-Book</h2></div>
+          <div class="marketplace-grid-inline" id="upcomingGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;"></div>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-prebookings" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>My Pre-Bookings</h2></div>
+          <table class="data-table"><thead><tr><th>Crop</th><th>Farmer</th><th>Qty</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="myPrebookingsBody"><tr><td colspan="5" class="empty-state">No pre-bookings yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-orders" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>My Orders</h2></div>
+          <table class="data-table"><thead><tr><th>Order #</th><th>Farmer</th><th>Total</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="myOrdersBody"><tr><td colspan="5" class="empty-state">No orders yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-favorites" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Saved Farmers</h2></div>
+          <table class="data-table"><thead><tr><th>Farmer</th><th>Location</th><th>Verified</th></tr></thead>
+          <tbody id="favoritesBody"><tr><td colspan="3" class="empty-state">No saved farmers yet.</td></tr></tbody></table>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-notifications" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Notifications</h2><button class="btn btn-sm btn-outline" id="markAllReadBtn">Mark all as read</button></div>
+          <div id="notificationsList"></div>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-profile" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>Profile</h2></div><div id="profileContent"></div></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>

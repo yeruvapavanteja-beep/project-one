@@ -1,0 +1,181 @@
+/* ============================================================
+   AgriSmart Connect — Core Design System
+   "Smart Farming. Better Decisions. Direct to Customers."
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  /* ---- Color tokens ---- */
+  --color-forest: #1B4332;
+  --color-forest-dark: #102821;
+  --color-leaf: #40916C;
+  --color-leaf-light: #74C69D;
+  --color-wheat: #FAF6EC;
+  --color-wheat-deep: #F0E9D8;
+  --color-soil: #7F5539;
+  --color-soil-light: #B08968;
+  --color-gold: #D4A017;
+  --color-ink: #16241C;
+  --color-ink-soft: #3F5148;
+  --color-white: #FFFFFF;
+  --color-border: #E1DDD0;
+  --color-danger: #B3261E;
+  --color-success: #2D6A4F;
+  --color-warning: #B8860B;
+
+  /* ---- Typography ---- */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* ---- Spacing scale ---- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* ---- Radius & shadow ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-soft: 0 2px 12px rgba(27, 67, 50, 0.06);
+  --shadow-card: 0 8px 30px rgba(27, 67, 50, 0.09);
+  --shadow-lift: 0 16px 40px rgba(27, 67, 50, 0.16);
+
+  --container-width: 1180px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-wheat);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, select, textarea { font-family: inherit; font-size: 1rem; }
+
+:focus-visible {
+  outline: 3px solid var(--color-leaf);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section { padding: var(--space-2xl) 0; }
+.section-tight { padding: var(--space-xl) 0; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-leaf);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-sm);
+}
+.eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--color-leaf);
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-forest); line-height: 1.15; font-weight: 600; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.9rem, 3.4vw, 2.75rem); }
+h3 { font-size: 1.4rem; }
+
+.section-heading { max-width: 640px; margin-bottom: var(--space-lg); }
+.section-heading.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-heading p { color: var(--color-ink-soft); font-size: 1.08rem; margin-top: var(--space-xs); }
+
+.data { font-family: var(--font-mono); font-weight: 600; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--color-leaf); color: var(--color-white); box-shadow: var(--shadow-soft); }
+.btn-primary:hover { background: var(--color-forest); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.btn-outline { background: transparent; color: var(--color-forest); border: 1.5px solid var(--color-forest); }
+.btn-outline:hover { background: var(--color-forest); color: var(--color-white); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--color-ink); }
+.btn-ghost:hover { color: var(--color-leaf); }
+.btn-gold { background: var(--color-gold); color: var(--color-forest-dark); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.btn-block { width: 100%; }
+.btn-sm { padding: 0.55rem 1.1rem; font-size: 0.88rem; }
+
+/* ---- Cards ---- */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+
+/* ---- Badges / status pills ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+.badge-high, .badge-good, .badge-confirmed, .badge-completed { background: #E4F3EA; color: var(--color-success); }
+.badge-medium, .badge-moderate, .badge-pending { background: #FBF1D8; color: var(--color-warning); }
+.badge-low, .badge-cancelled, .badge-poor { background: #FBE7E5; color: var(--color-danger); }
+.badge-info { background: #E4EDF3; color: #2B5C7A; }
+
+/* ---- Utility ---- */
+.text-center { text-align: center; }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.flex { display: flex; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+
+/* ---- Reveal-on-scroll (progressive enhancement, respects reduced motion) ---- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }

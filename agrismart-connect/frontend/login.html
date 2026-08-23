@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="auth-body">
+<div class="auth-shell">
+  <div class="auth-brand-panel">
+    <a href="index.html" class="brand"><span class="brand-mark">A</span><span class="brand-name" style="color:#fff;">AgriSmart Connect</span></a>
+    <h2 style="color:#fff; margin-top:var(--space-lg);">Smart Farming. Better Decisions. Direct to Customers.</h2>
+    <p style="color:rgba(250,246,236,0.75); margin-top:var(--space-sm);">Log in to manage your farm, track crops, or shop fresh produce direct from local farmers.</p>
+  </div>
+  <div class="auth-form-panel">
+    <div class="auth-form-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-role="farmer">Farmer / Customer</button>
+        <button class="auth-tab" data-role="admin">Admin</button>
+      </div>
+
+      <h3>Welcome back</h3>
+      <p class="auth-sub">Log in to continue to your dashboard.</p>
+
+      <form id="loginForm">
+        <label>Email
+          <input type="email" name="email" required placeholder="you@example.com">
+        </label>
+        <label>Password
+          <input type="password" name="password" required placeholder="••••••••">
+        </label>
+        <div class="flex-between" style="margin: 0.5rem 0 1rem;">
+          <label class="checkbox-label"><input type="checkbox"> Remember me</label>
+          <a href="forgot-password.html" style="font-size:0.88rem; color:var(--color-leaf);">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Log In</button>
+      </form>
+
+      <p class="auth-footer-text">Don't have an account? <a href="register.html">Register here</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

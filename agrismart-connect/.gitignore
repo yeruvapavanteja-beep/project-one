@@ -1,0 +1,11 @@
+node_modules/
+.env
+uploads/crops/*
+uploads/growth/*
+uploads/profiles/*
+!uploads/crops/.gitkeep
+!uploads/growth/.gitkeep
+!uploads/profiles/.gitkeep
+*.log
+.DS_Store
+npm-debug.log*

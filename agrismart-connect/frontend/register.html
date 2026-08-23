@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="auth-body">
+<div class="auth-shell">
+  <div class="auth-brand-panel">
+    <a href="index.html" class="brand"><span class="brand-mark">A</span><span class="brand-name" style="color:#fff;">AgriSmart Connect</span></a>
+    <h2 style="color:#fff; margin-top:var(--space-lg);">Join as a farmer or a customer</h2>
+    <p style="color:rgba(250,246,236,0.75); margin-top:var(--space-sm);">Farmers get smart crop recommendations and reach buyers directly. Customers discover fresh produce before it's even harvested.</p>
+  </div>
+  <div class="auth-form-panel">
+    <div class="auth-form-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-role="farmer">I'm a Farmer</button>
+        <button class="auth-tab" data-role="customer">I'm a Customer</button>
+      </div>
+
+      <h3>Create your account</h3>
+      <p class="auth-sub">It only takes a minute.</p>
+
+      <!-- Farmer form -->
+      <form id="farmerRegisterForm" class="reg-form">
+        <label>Full Name<input type="text" name="fullName" required placeholder="e.g. Ramesh Kumar"></label>
+        <label>Email<input type="email" name="email" required placeholder="you@example.com"></label>
+        <label>Phone<input type="tel" name="phone" required placeholder="10-digit mobile number"></label>
+        <label>Password<input type="password" name="password" required minlength="8" placeholder="At least 8 characters"></label>
+        <div class="form-row">
+          <label>District<input type="text" name="district" placeholder="e.g. Karimnagar"></label>
+          <label>State<input type="text" name="state" placeholder="e.g. Telangana"></label>
+        </div>
+        <label>Farm Location<input type="text" name="location" placeholder="Village / area"></label>
+        <div class="form-row">
+          <label>Farm Area (acres)<input type="number" step="0.1" name="farmArea" placeholder="e.g. 2.5"></label>
+          <label>Farmer Type
+            <select name="farmerType">
+              <option value="smallholder">Smallholder</option>
+              <option value="commercial">Commercial</option>
+              <option value="organic">Organic</option>
+              <option value="mixed">Mixed</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Farmer Account</button>
+      </form>
+
+      <!-- Customer form -->
+      <form id="customerRegisterForm" class="reg-form" style="display:none;">
+        <label>Full Name<input type="text" name="fullName" required placeholder="e.g. Sana Patel"></label>
+        <label>Email<input type="email" name="email" required placeholder="you@example.com"></label>
+        <label>Phone<input type="tel" name="phone" required placeholder="10-digit mobile number"></label>
+        <label>Password<input type="password" name="password" required minlength="8" placeholder="At least 8 characters"></label>
+        <label>Location<input type="text" name="location" placeholder="City / area"></label>
+        <label>Delivery Address<textarea name="address" rows="3" placeholder="Full address for deliveries"></textarea></label>
+        <button type="submit" class="btn btn-primary btn-block">Create Customer Account</button>
+      </form>
+
+      <p class="auth-footer-text">Already have an account? <a href="login.html">Log in here</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

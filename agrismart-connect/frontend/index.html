@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriSmart Connect — Smart Farming. Better Decisions. Direct to Customers.</title>
+<meta name="description" content="AgriSmart Connect helps farmers choose the right crops using soil, season, and demand data, then connects them directly with customers through pre-harvest booking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span class="brand-name">AgriSmart Connect</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#marketplace-explainer">Marketplace</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost">Log In</a>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-nav-panel" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+  <a href="#how-it-works">How It Works</a>
+  <a href="#features">Features</a>
+  <a href="#marketplace-explainer">Marketplace</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="login.html">Log In</a>
+  <a href="register.html">Get Started</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="dot"></span><span>Soil-to-Basket Decision Support</span></div>
+      <h1>Smart farming.<br>Better decisions.<br><em>Direct</em> to customers.</h1>
+      <p class="hero-sub">
+        AgriSmart Connect doesn't just tell farmers what can grow — it combines soil and seasonal
+        suitability with market demand and customer pre-orders, so farmers can decide what to plant
+        and customers can order fresh produce before it's even harvested.
+      </p>
+      <div class="hero-ctas">
+        <a href="register.html?role=farmer" class="btn btn-primary">Start Farming Smarter</a>
+        <a href="marketplace.html" class="btn btn-outline">Explore Fresh Produce</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num" data-count="0">0</span><span class="label">Farmers onboarded</span></div>
+        <div class="hero-stat"><span class="num" data-count="0">0</span><span class="label">Crops tracked</span></div>
+        <div class="hero-stat"><span class="num" data-count="0">0</span><span class="label">Pre-bookings placed</span></div>
+      </div>
+    </div>
+
+    <div class="growth-arc-wrap">
+      <svg class="growth-arc" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Crop growth journey from seedling to harvest basket">
+        <path class="arc-path" d="M 40 280 Q 120 60 210 160 T 380 60"></path>
+        <g>
+          <circle class="arc-node-circle" cx="40" cy="280" r="9"></circle>
+          <text class="arc-stage-label" x="40" y="308">Seed</text>
+          <circle class="arc-node-circle" cx="130" cy="160" r="9"></circle>
+          <text class="arc-stage-label" x="130" y="188">Soil Test</text>
+          <circle class="arc-node-circle active" cx="210" cy="160" r="10"></circle>
+          <text class="arc-stage-label" x="210" y="188">Growing</text>
+          <circle class="arc-node-circle" cx="300" cy="110" r="9"></circle>
+          <text class="arc-stage-label" x="300" y="138">Pre-Booked</text>
+          <circle class="arc-node-circle" cx="380" cy="60" r="9"></circle>
+          <text class="arc-stage-label" x="380" y="40">Harvest</text>
+        </g>
+      </svg>
+      <p class="growth-arc-caption">// tracked from seed to basket, in real time</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPLANATION STRIP ================= -->
+<section class="section-tight">
+  <div class="container">
+    <div class="section-heading center" style="margin:0 auto;">
+      <div class="eyebrow" style="justify-content:center;">The Platform</div>
+      <h2>One connected loop, from soil to sale</h2>
+      <p>Most apps stop at "what to grow." AgriSmart Connect stays with the farmer through the whole season — and lets customers reserve produce before it's even ripe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">How It Works</div>
+      <h2>From soil sample to doorstep</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="card step-card reveal">
+        <div class="step-number">01</div>
+        <h3>Test & Recommend</h3>
+        <p>Farmer enters soil, season, and water data. Our scoring engine ranks suitable crops with a plain-language "why."</p>
+      </div>
+      <div class="card step-card reveal">
+        <div class="step-number">02</div>
+        <h3>Plant & Track</h3>
+        <p>Farmer logs planting and updates growth stage with photos — visible to customers as a live progress timeline.</p>
+      </div>
+      <div class="card step-card reveal">
+        <div class="step-number">03</div>
+        <h3>Pre-Book & Confirm</h3>
+        <p>Customers reserve quantity from an upcoming harvest. Farmers confirm — no overbooking, ever.</p>
+      </div>
+      <div class="card step-card reveal">
+        <div class="step-number">04</div>
+        <h3>Harvest & Deliver</h3>
+        <p>Produce is packed and delivered or picked up. Customer receives fresh produce, straight from the source.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features" style="background:var(--color-white);">
+  <div class="container">
+    <div class="section-heading center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">Key Features</div>
+      <h2>Built for real decisions, not just data</h2>
+    </div>
+    <div class="features-grid">
+      <div class="card feature-card reveal">
+        <div class="feature-icon">🌱</div>
+        <h3>Smart Crop Recommendations</h3>
+        <p>Soil, season, water, weather, and demand combined into one ranked, explainable score.</p>
+      </div>
+      <div class="card feature-card reveal">
+        <div class="feature-icon">📈</div>
+        <h3>Growth Monitoring</h3>
+        <p>Photo-based updates and a visual timeline from seedling to ready-for-harvest.</p>
+      </div>
+      <div class="card feature-card reveal">
+        <div class="feature-icon">🛒</div>
+        <h3>Pre-Harvest Booking</h3>
+        <p>Customers reserve produce before it's picked. Farmers gauge real demand early.</p>
+      </div>
+      <div class="card feature-card reveal">
+        <div class="feature-icon">🤝</div>
+        <h3>Direct Marketplace</h3>
+        <p>No unnecessary middlemen — farmers list, customers order, produce moves directly.</p>
+      </div>
+      <div class="card feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <h3>Demand Analytics</h3>
+        <p>See what's actually selling — searches, views, bookings — to plan the next cycle.</p>
+      </div>
+      <div class="card feature-card reveal">
+        <div class="feature-icon">🔔</div>
+        <h3>Real-Time Notifications</h3>
+        <p>Bookings, order status, and harvest-ready alerts land instantly for both sides.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFITS SPLIT ================= -->
+<section class="section">
+  <div class="container">
+    <div class="benefits-split">
+      <div class="benefit-panel farmer reveal">
+        <span class="panel-tag">For Farmers</span>
+        <h3>Plan with confidence, sell with certainty</h3>
+        <ul>
+          <li><span class="check">✓</span> Data-backed crop choices, explained in plain language</li>
+          <li><span class="check">✓</span> Gauge demand before harvest through pre-bookings</li>
+          <li><span class="check">✓</span> One dashboard for farm, crops, orders, and analytics</li>
+          <li><span class="check">✓</span> Reach customers directly — reduce middleman dependency</li>
+        </ul>
+      </div>
+      <div class="benefit-panel customer reveal">
+        <span class="panel-tag">For Customers</span>
+        <h3>Fresher produce, straight from the farm</h3>
+        <ul>
+          <li><span class="check">✓</span> Reserve produce before it's harvested</li>
+          <li><span class="check">✓</span> Watch your order's crop grow in real time</li>
+          <li><span class="check">✓</span> Know exactly which farm and farmer it came from</li>
+          <li><span class="check">✓</span> Track orders from confirmation to delivery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRE-HARVEST BOOKING EXPLAINER ================= -->
+<section class="section" id="marketplace-explainer" style="background:var(--color-white);">
+  <div class="container">
+    <div class="booking-explainer">
+      <div>
+        <div class="eyebrow">Core Innovation</div>
+        <h2>Reserve it before it's ripe</h2>
+        <p style="color:var(--color-ink-soft); margin:var(--space-sm) 0 var(--space-md); font-size:1.05rem;">
+          Farmers open part of an upcoming harvest for pre-booking. Customers reserve quantity in advance;
+          the system tracks exactly how much remains so a crop is never oversold.
+        </p>
+        <a href="marketplace.html" class="btn btn-outline">Browse Upcoming Harvests</a>
+      </div>
+      <div class="card booking-demo-card reveal">
+        <div class="crop-row">
+          <h3>Tomato — Rambedu Farms</h3>
+          <span class="badge badge-medium">Growing</span>
+        </div>
+        <p style="color:var(--color-ink-soft); font-size:0.9rem;">Expected harvest: <span class="data">15 Sep</span></p>
+        <div class="booking-progress-track"><div class="booking-progress-fill" style="width:64%;"></div></div>
+        <div class="booking-figures">
+          <div><span class="num">500kg</span><span class="label">Expected</span></div>
+          <div><span class="num">320kg</span><span class="label">Pre-Booked</span></div>
+          <div><span class="num">180kg</span><span class="label">Remaining</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI RECOMMENDATION EXPLAINER ================= -->
+<section class="section">
+  <div class="container">
+    <div class="ai-explainer">
+      <div class="section-heading">
+        <div class="eyebrow" style="color:var(--color-leaf-light);">AI-Assisted, Not AI-Guaranteed</div>
+        <h2>A ranked score, not a guess</h2>
+        <p>Every recommendation is built from five weighted factors — transparent, and tunable as more real data comes in.</p>
+      </div>
+      <div class="score-formula">
+        <span class="score-chip">Soil Suitability</span> +
+        <span class="score-chip">Season Score</span> +
+        <span class="score-chip">Water Score</span> +
+        <span class="score-chip">Weather Score</span> +
+        <span class="score-chip">Demand Score</span> =
+        <span class="score-chip result">Overall Score</span>
+      </div>
+      <div class="ai-sample-card">
+        <span class="rank">#1 Recommended</span>
+        <h4>Tomato — Suitability: High</h4>
+        <p>"Tomato is recommended because the entered soil pH and nutrient levels are within a suitable range, the current season is favorable, and demand outlook is relatively strong."</p>
+      </div>
+      <p class="ai-disclaimer">Recommendations are decision-support suggestions based on the data provided. They are not a guarantee of yield, profit, or market price, and do not replace advice from a qualified agricultural expert.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT / STATS ================= -->
+<section class="section-tight">
+  <div class="container">
+    <div class="impact-strip">
+      <div class="impact-stat"><span class="num" data-count="0">0</span><div class="label">Registered Farmers</div></div>
+      <div class="impact-stat"><span class="num" data-count="0">0</span><div class="label">Crops Currently Tracked</div></div>
+      <div class="impact-stat"><span class="num" data-count="0">0</span><div class="label">Pre-Bookings Completed</div></div>
+      <div class="impact-stat"><span class="num" data-count="0">0</span><div class="label">Districts Covered</div></div>
+    </div>
+    <p class="impact-note">Figures reflect live platform activity and grow as more farmers and customers join — not projected or estimated numbers.</p>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section" style="background:var(--color-white);">
+  <div class="container">
+    <div class="section-heading center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">Early Feedback</div>
+      <h2>What farmers and customers are saying</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="card testimonial-card reveal">
+        <p class="testimonial-quote">"Pre-bookings meant I knew roughly how much okra to hold back before I even harvested."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">R</div>
+          <div><div class="name">Ramesh K.</div><div class="role">Farmer, Telangana</div></div>
+        </div>
+      </div>
+      <div class="card testimonial-card reveal">
+        <p class="testimonial-quote">"I could see the tomatoes growing on my order before they were even picked. That's new."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">S</div>
+          <div><div class="name">Sana P.</div><div class="role">Customer, Hyderabad</div></div>
+        </div>
+      </div>
+      <div class="card testimonial-card reveal">
+        <p class="testimonial-quote">"The soil summary flagged low organic matter before I planted — small thing, saved me a season."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">M</div>
+          <div><div class="name">Manoj D.</div><div class="role">Farmer, Karimnagar</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-heading center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">FAQ</div>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">Does AgriSmart Connect guarantee a certain yield or profit? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Recommendations are decision-support suggestions based on the data you provide. They are never a guarantee of yield, profit, or market price.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Can a customer pre-book more than what's available? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. The system tracks available quantity in real time and blocks any booking that would exceed it, even under concurrent requests.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Does this replace a laboratory soil test or an agricultural expert? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Soil analysis and crop recommendations are decision-support tools. We recommend periodic lab testing and consulting local agricultural extension officers, especially for major planting decisions.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How does pre-harvest booking work? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Farmers open part of an upcoming harvest for booking before it's picked. Customers reserve a quantity; the farmer confirms; the produce is delivered once harvested.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is there a payment gateway? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">The current version tracks payment status (unpaid/paid/refunded) but does not process real payments yet. This is built into the architecture for a future integration.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact" style="background:var(--color-white);">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get in Touch</div>
+        <h2>Questions about AgriSmart Connect?</h2>
+        <p style="color:var(--color-ink-soft); margin:var(--space-sm) 0 var(--space-lg);">Reach out and our team will get back to you — whether you're a farmer, customer, or just curious.</p>
+        <div class="contact-info-item"><span class="ci-icon">📍</span><span>Hyderabad, Telangana, India</span></div>
+        <div class="contact-info-item"><span class="ci-icon">✉️</span><span>hello@agrismartconnect.example</span></div>
+        <div class="contact-info-item"><span class="ci-icon">📞</span><span>+91 00000 00000</span></div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea rows="5" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="section">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Ready to grow smarter?</h2>
+      <p>Join as a farmer to get crop recommendations and reach customers directly, or join as a customer to discover fresh produce before it's even harvested.</p>
+      <div class="final-cta-actions">
+        <a href="register.html?role=farmer" class="btn btn-gold">Start Farming Smarter</a>
+        <a href="register.html?role=customer" class="btn btn-outline" style="border-color:#fff;color:#fff;">Explore Fresh Produce</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark">A</span><span class="brand-name">AgriSmart Connect</span></div>
+        <p>Smart farming. Better decisions. Direct to customers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="marketplace.html">Marketplace</a>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="login.html">Log In</a>
+        <a href="register.html">Register</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AgriSmart Connect. All rights reserved.</span>
+      <span>Decision-support platform — not a substitute for professional agricultural advice.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

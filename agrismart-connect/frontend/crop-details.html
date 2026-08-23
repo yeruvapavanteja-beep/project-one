@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop Details — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/marketplace.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">A</span><span class="brand-name">AgriSmart Connect</span></a>
+    <nav class="nav-links"><a href="marketplace.html">Marketplace</a></nav>
+    <div class="nav-actions"><a href="login.html" class="btn btn-ghost">Log In</a></div>
+  </div>
+</header>
+
+<div class="container" style="padding:var(--space-lg) var(--space-md);">
+  <div id="cropDetailContent"><p class="empty-state">Loading crop details...</p></div>
+
+  <div class="panel mt-lg">
+    <div class="panel-header"><h2>Growth Timeline</h2></div>
+    <div class="growth-timeline" id="publicTimeline"><p class="empty-state">Loading timeline...</p></div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script>
+const cropId = new URLSearchParams(window.location.search).get('id');
+
+async function loadCropDetail() {
+  if (!cropId) return;
+  try {
+    const crop = await Api.get(`/crops/public/${cropId}`);
+    document.getElementById('cropDetailContent').innerHTML = `
+      <div class="card" style="padding:var(--space-lg); display:grid; grid-template-columns: 320px 1fr; gap:var(--space-lg);">
+        <div class="product-image" style="height:240px; border-radius:var(--radius-md);">
+          ${crop.cover_image ? `<img src="http://localhost:5000${crop.cover_image}" alt="${crop.crop_name}">` : '🥬'}
+        </div>
+        <div>
+          <h1 style="font-size:1.8rem;">${crop.crop_name} ${crop.variety ? `— ${crop.variety}` : ''}</h1>
+          <p style="color:var(--color-ink-soft); margin:0.3rem 0 var(--space-sm);">by ${crop.farmer_name} · ${crop.district || crop.farm_location || ''}</p>
+          <span class="badge badge-medium">${crop.growth_stage.replace(/_/g,' ')}</span>
+          <div class="progress-bar-track mt-sm"><div class="progress-bar-fill" style="width:${crop.growth_percentage}%;"></div></div>
+          <div class="form-grid mt-md">
+            <div><strong>Expected Harvest:</strong> ${crop.expected_harvest_date ? new Date(crop.expected_harvest_date).toLocaleDateString() : '—'}</div>
+            <div><strong>Estimated Quantity:</strong> ${crop.estimated_quantity_kg || 0}kg</div>
+            <div><strong>Available for Pre-Booking:</strong> ${Math.max(0,(crop.available_for_prebooking_kg||0)-(crop.prebooked_quantity_kg||0))}kg</div>
+            <div><strong>Price:</strong> ₹${crop.expected_price_per_kg || '—'}/kg</div>
+          </div>
+          ${crop.description ? `<p class="mt-md">${crop.description}</p>` : ''}
+          <a href="marketplace.html" class="btn btn-primary mt-md">Go to Marketplace to Order</a>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    document.getElementById('cropDetailContent').innerHTML = `<p class="empty-state">${err.message}</p>`;
+  }
+
+  try {
+    const updates = await Api.get(`/growth/${cropId}`);
+    document.getElementById('publicTimeline').innerHTML = updates.length ? updates.map(u => `
+      <div class="timeline-item">
+        <div class="t-stage">${u.growth_stage.replace(/_/g,' ')} — ${u.growth_percentage}%</div>
+        <div class="t-date">${new Date(u.update_date).toLocaleDateString()} · ${u.health_status}</div>
+        ${u.notes ? `<div class="t-notes">${u.notes}</div>` : ''}
+      </div>
+    `).join('') : '<p class="empty-state">No growth updates yet.</p>';
+  } catch (err) {
+    document.getElementById('publicTimeline').innerHTML = '<p class="empty-state">No growth updates available.</p>';
+  }
+}
+loadCropDetail();
+</script>
+</body>
+</html>

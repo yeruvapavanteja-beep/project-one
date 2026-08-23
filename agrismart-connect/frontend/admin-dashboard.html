@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — AgriSmart Connect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+<div class="dashboard-layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><span class="brand-mark">A</span><span class="brand-name">AgriSmart Admin</span></div>
+    <nav class="sidebar-nav" id="sidebarNav">
+      <a href="#dashboard" data-section="dashboard" class="active">📊 Dashboard</a>
+      <a href="#farmers" data-section="farmers">🧑‍🌾 Farmers</a>
+      <a href="#customers" data-section="customers">🧑‍🤝‍🧑 Customers</a>
+      <a href="#crops" data-section="crops">🍅 Crops</a>
+      <a href="#orders" data-section="orders">🚚 Orders</a>
+      <a href="#prebookings" data-section="prebookings">📦 Pre-Bookings</a>
+      <a href="#complaints" data-section="complaints">⚠️ Complaints</a>
+      <a href="#settings" data-section="settings">⚙️ Categories & Locations</a>
+    </nav>
+    <div class="sidebar-footer"><button onclick="logout()">🚪 Logout</button></div>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+      <div class="topbar-title"><h1 id="sectionTitle">Dashboard</h1></div>
+      <div class="topbar-actions"><div class="topbar-user"><div class="topbar-avatar" id="avatarInitial">A</div><span id="userName">Admin</span></div></div>
+    </header>
+
+    <div class="dashboard-content">
+
+      <section class="dash-section" id="section-dashboard">
+        <div class="stat-cards">
+          <div class="card stat-card"><div class="stat-label">Total Farmers</div><div class="stat-value" id="statFarmers">0</div></div>
+          <div class="card stat-card"><div class="stat-label">Total Customers</div><div class="stat-value" id="statCustomers">0</div></div>
+          <div class="card stat-card"><div class="stat-label">Active Crops</div><div class="stat-value" id="statActiveCrops">0</div></div>
+          <div class="card stat-card"><div class="stat-label">Upcoming Harvests</div><div class="stat-value" id="statUpcoming">0</div></div>
+          <div class="card stat-card"><div class="stat-label">Total Orders</div><div class="stat-value" id="statOrders">0</div></div>
+          <div class="card stat-card"><div class="stat-label">Total Pre-Bookings</div><div class="stat-value" id="statPrebookings">0</div></div>
+        </div>
+      </section>
+
+      <section class="dash-section" id="section-farmers" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>Farmers</h2></div>
+        <table class="data-table"><thead><tr><th>Name</th><th>Email</th><th>District</th><th>Status</th><th>Verified</th><th>Actions</th></tr></thead>
+        <tbody id="farmersBody"></tbody></table></div>
+      </section>
+
+      <section class="dash-section" id="section-customers" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>Customers</h2></div>
+        <table class="data-table"><thead><tr><th>Name</th><th>Email</th><th>Location</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="customersBody"></tbody></table></div>
+      </section>
+
+      <section class="dash-section" id="section-crops" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>All Crops</h2></div>
+        <table class="data-table"><thead><tr><th>Crop</th><th>Farmer</th><th>Status</th><th>Harvest Date</th><th>Est. Qty</th></tr></thead>
+        <tbody id="cropsBody"></tbody></table></div>
+      </section>
+
+      <section class="dash-section" id="section-orders" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>All Orders</h2></div>
+        <table class="data-table"><thead><tr><th>Order #</th><th>Customer</th><th>Farmer</th><th>Total</th><th>Status</th></tr></thead>
+        <tbody id="ordersBody"></tbody></table></div>
+      </section>
+
+      <section class="dash-section" id="section-prebookings" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>All Pre-Bookings</h2></div>
+        <table class="data-table"><thead><tr><th>Crop</th><th>Customer</th><th>Farmer</th><th>Qty</th><th>Status</th></tr></thead>
+        <tbody id="prebookingsBody"></tbody></table></div>
+      </section>
+
+      <section class="dash-section" id="section-complaints" style="display:none;">
+        <div class="panel"><div class="panel-header"><h2>Complaints</h2></div>
+        <table class="data-table"><thead><tr><th>Subject</th><th>Raised By</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="complaintsBody"></tbody></table></div>
+      </section>
+
+      <section class="dash-section" id="section-settings" style="display:none;">
+        <div class="panel">
+          <div class="panel-header"><h2>Add Category</h2></div>
+          <form id="categoryForm" class="form-grid cols-3">
+            <div class="form-field"><label>Name</label><input type="text" name="name" required></div>
+            <div class="form-field"><label>Slug</label><input type="text" name="slug" required></div>
+            <div class="form-field"><label>Description</label><input type="text" name="description"></div>
+            <button type="submit" class="btn btn-primary" style="grid-column:1/-1;width:fit-content;">Add Category</button>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h2>Add Location</h2></div>
+          <form id="locationForm" class="form-grid">
+            <div class="form-field"><label>State</label><input type="text" name="state" required></div>
+            <div class="form-field"><label>District</label><input type="text" name="district" required></div>
+            <button type="submit" class="btn btn-primary" style="grid-column:1/-1;width:fit-content;">Add Location</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
